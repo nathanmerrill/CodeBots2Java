@@ -1,0 +1,3 @@
+Start:Move
+Copy(E,D)
+Copy(-1,C)

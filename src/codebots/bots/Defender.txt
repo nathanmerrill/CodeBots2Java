@@ -1,0 +1,12 @@
+Start:Copy(0,A)
+Copy(0,B)
+Flag
+Flag
+All(Modified(Line(2)),Equals(A,0)):Copy(1,A)
+Copy(Line(3),Line(2))
+Copy(0,A)
+Copy(10,C)
+All(Modified(Line(3)),Equals(B,0)):Copy(1,B)
+Copy(Line(2),Line(3))
+Copy(0,B)
+BotAt(D):Copy(Line(2),OLine(E))

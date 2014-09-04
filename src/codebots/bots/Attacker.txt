@@ -1,0 +1,4 @@
+Start:Move
+BotAt(D):Copy(Line(Add(Mod(E,6),4)),OLine(E))
+Any(BotAt(0),BotAt(1),BotAt(2),BotAt(3)):Move
+None(BotAt(0),BotAt(1),BotAt(2),BotAt(3)):Copy(E,D)
