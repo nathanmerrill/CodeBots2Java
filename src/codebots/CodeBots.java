@@ -91,7 +91,7 @@ public class CodeBots {
         placeBots(botList);
     }
     public static File[] readBotFolder() {
-        File dir = new File("src/codebots/bots");
+        File dir = new File("bots");
         return dir.listFiles(new FileFilter() {
             @Override
             public boolean accept(File pathname) {
