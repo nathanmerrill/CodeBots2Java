@@ -74,7 +74,7 @@ public abstract class Argument<T> {
             checkArguments(parser,1,"OLine");
             checkNumerical(parsedArgs, "OLine");
             IntArgument intArgument = (IntArgument) parsedArgs.get(0);
-            return new OArgument(new LineArgument(intArgument));
+            return new OLineArgument(intArgument);
         }
         if (parser.name.equals("otype")){
             checkArguments(parser, 1, "OType");
