@@ -10,17 +10,17 @@ public class OLineArgument extends LineArgument{
 
     @Override
     public Action<?> getValue(Bot current, int curLine) {
-        return super.getValue(current.getOpponent(), curLine);
+        return current.getOpponent().getLine(super.getLineNumber(current, curLine));
     }
 
     @Override
     public void setValue(Bot current, Action<?> value, int curLine) {
-        super.setValue(current.getOpponent(), value, curLine);
+        current.getOpponent().setLine(super.getLineNumber(current, curLine), value);
     }
 
     @Override
     public int getLineNumber(Bot current, int curLine) {
-        return super.getLineNumber(current.getOpponent(), curLine);
+        return super.getLineNumber(current, curLine);
     }
 
     @Override
