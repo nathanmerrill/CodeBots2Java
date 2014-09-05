@@ -13,7 +13,11 @@ public class DivArgument extends IntArgument{
 
     @Override
     public Integer getValue(Bot current, int lineNumber) {
-        return arg1.getValue(current,lineNumber)/arg2.getValue(current, lineNumber) % CodeBots.numLines;
+        int divideBy = arg2.getValue(current, lineNumber);
+        if (divideBy == 0){
+            return 0;
+        }
+        return arg1.getValue(current,lineNumber)/divideBy % CodeBots.numLines;
     }
 
     @Override

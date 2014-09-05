@@ -14,7 +14,7 @@ public class OVarArgument extends IntArgument{
 
     @Override
     public Integer getValue(Bot current, int curLine) {
-        return argument.getValue(current, curLine);
+        return argument.getValue(current.getOpponent(), curLine);
     }
 
 

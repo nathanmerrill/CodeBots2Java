@@ -214,6 +214,10 @@ public class Bot {
                 ||!conditions[i].equals(initialConditions[i]);
     }
     public boolean conditionIsTrue(int i){
-        return conditions[i].isTrue(this, i);
+        try {
+            return conditions[i].isTrue(this, i);
+        }catch (NoOpponent e){
+            return false;
+        }
     }
 }

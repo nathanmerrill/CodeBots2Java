@@ -1,0 +1,4 @@
+Start:Move
+All(BotAt(D),Not(Equals(OVar(D),D))): Copy(D,OVar(D))
+BotAt(D):Copy(Line(E),OLine(E))
+Equals(A,A):Move

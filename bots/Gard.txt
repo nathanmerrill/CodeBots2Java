@@ -1,0 +1,7 @@
+Start: Move
+BotAt(D):IF(Equals(Line(7),OLine(C)),Line(6),Line(5))
+BotAt(Add(D,1)):Copy(Add(D,1),D)
+BotAt(Add(D,2)):Copy(Add(D,2),D)
+BotAt(Add(D,3)):Copy(Add(D,3),D)
+Copy(Line(7),OLine(OVar(C)))
+Copy(Cond(7),OCond(Sub(OVar(C),1)))
