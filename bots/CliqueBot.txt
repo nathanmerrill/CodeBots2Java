@@ -1,0 +1,12 @@
+Start: Copy(11,B)
+Not(Equals(Line(20),Line(21))): If(Equals(Line(21),Line(22)),Line(7),Line(8))
+Not(Equals(Line(21),Line(22))): If(Equals(Line(20),Line(21)),Line(9),Line(10))
+All(BotAt(D),Not(Equals(11,OVar(B)))): If(Equals(Line(20),OLine(OVar(C))),Line(10),Line(11))
+Any(BotAt(D),Equals(E,B)): Copy(Add(D,1),D)
+Equals(1,1): Move
+Copy(Line(21),Line(20))
+Copy(Line(20),Line(21))
+Copy(Line(21),Line(22))
+If(Equals(Line(20),OLine(Sub(OVar(C),1))),Line(5),Line(12))
+Copy(Line(20),OLine(OVar(C)))
+Copy(Line(20),OLine(E))
