@@ -8,6 +8,7 @@ import java.util.List;
 public class Scorer implements Comparable<Scorer> {
     public static HashMap<String, Scorer> scorers = new HashMap<String, Scorer>();
     public static int noFlags = 0;
+    private static int timesScored = 0;
     public static void scoreBots(){
         for (Scorer s: scorers.values()) {
             for (Bot b: s.bots) {
@@ -19,6 +20,7 @@ public class Scorer implements Comparable<Scorer> {
                 scorers.get(flag).score++;
             }
         }
+        timesScored ++;
     }
     public static void addBot(Bot b){
         if (!scorers.containsKey(b.name)){
@@ -39,8 +41,8 @@ public class Scorer implements Comparable<Scorer> {
         Collections.sort(scores);
         return scores;
     }
-    public int getScore(){
-        return score;
+    public double getScore(){
+        return score*1.0/timesScored;
     }
     @Override
     public int compareTo(Scorer o) {
