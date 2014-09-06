@@ -1,0 +1,3 @@
+All( BotAt(D) , None( BotAt(Add(D,1)) , BotAt(Add(D,2)) , BotAt(Add(D,3)) ) ):Move
+Start:Flag
+Copy(-1,C)

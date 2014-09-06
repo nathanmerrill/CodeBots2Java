@@ -1,0 +1,9 @@
+Start:Move
+BotAt(D):If(OCond(0),OLine(0),Line(2))
+If(OCond(1),OLine(1),Line(3))
+If(OCond(2),OLine(2),Line(4))
+If(OCond(3),OLine(3),Line(5))
+If(OCond(4),OLine(4),Line(6))
+If(OCond(5),OLine(5),OLine(OVar(C)))
+Not(BotAt(D)):If(BotAt(Add(D,1)),Line(8),Line(0))
+Copy(Add(D,1),D)

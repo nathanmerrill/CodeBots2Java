@@ -4,14 +4,9 @@ import codebots.Bot;
 import codebots.exceptions.BadFormatException;
 
 public class TypeArgument extends Argument<String> {
-    private IntArgument lineNumber;
+    protected IntArgument lineNumber;
     public TypeArgument(IntArgument lineNumber){
         this.lineNumber = lineNumber;
-    }
-
-    @Override
-    public boolean equals(Argument other, Bot current, int curLine) {
-        return other.getValue(current, curLine).equals(getValue(current, curLine));
     }
 
     @Override

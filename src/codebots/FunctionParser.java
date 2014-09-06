@@ -8,12 +8,12 @@ import java.util.List;
 public class FunctionParser {
     public final String name;
     public final List<String> args;
-    private final String full_line;
+    public final String full_line;
     public FunctionParser(String function){
         if (function.contains("//")) {
             function = function.substring(0, function.indexOf("//"));
         }
-        function = function.trim().toLowerCase();
+        function = function.replace(" ","").trim().toLowerCase();
         full_line = function;
         args = new ArrayList<>();
         if (!function.contains("(")) {

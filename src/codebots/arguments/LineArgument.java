@@ -4,7 +4,7 @@ import codebots.Bot;
 import codebots.actions.Action;
 
 public class LineArgument extends Argument<Action<?>> {
-    private final IntArgument lineNumber;
+    protected final IntArgument lineNumber;
     public LineArgument(IntArgument lineNumber){
         this.lineNumber = lineNumber;
     }
@@ -21,11 +21,6 @@ public class LineArgument extends Argument<Action<?>> {
     @Override
     public Action<?> getValue(Bot current, int curLine) {
         return current.getLine(lineNumber.getValue(current, curLine));
-    }
-
-    @Override
-    public boolean equals(Argument other, Bot current, int curLine) {
-        return other.getValue(current, curLine).equals(getValue(current, curLine));
     }
 
 

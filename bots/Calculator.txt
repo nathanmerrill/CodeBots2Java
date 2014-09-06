@@ -1,6 +1,6 @@
-Equals(Mod(OVar(E),5),0):Copy(Add(OVar(A),OVar(B)),A)
-Equals(Mod(OVar(E),5),1):Copy(Sub(OVar(A),OVar(B)),A)
-Equals(Mod(OVar(E),5),2):Copy(Mult(OVar(A),OVar(B)),A)
-Equals(Mod(OVar(E),5),3):Copy(Div(OVar(A),OVar(B)),A)
-Equals(Mod(OVar(E),5),4):Copy(Mod(OVar(A),OVar(B)),A)
+Equals(Mod(OVar(E),5),0):Copy(Add(OVar(A),OVar(B)),OVar(D))
+Equals(Mod(OVar(E),5),1):Copy(Sub(OVar(A),OVar(B)),OVar(D))
+Equals(Mod(OVar(E),5),2):Copy(Mult(OVar(A),OVar(B)),OVar(D))
+Equals(Mod(OVar(E),5),3):Copy(Div(OVar(A),OVar(B)),OVar(D))
+Equals(Mod(OVar(E),5),4):Copy(Mod(OVar(A),OVar(B)),OVar(D))
 Start:Move

@@ -11,7 +11,9 @@ import java.util.List;
 public abstract class Argument<T> {
     public abstract T getValue(Bot current, int curLine);
     public abstract void setValue(Bot current, T value, int curLine);
-    public abstract boolean equals(Argument other, Bot current, int curLine);
+    public boolean equals(Argument other, Bot current, int curLine){
+        return other.getValue(current, curLine).equals(getValue(current, curLine));
+    }
     public abstract boolean wasChanged(Bot current, int curLine);
 
     private static HashMap<FunctionParser, Argument> memoizer = new HashMap<>();
@@ -80,19 +82,19 @@ public abstract class Argument<T> {
             checkArguments(parser, 1, "OType");
             checkNumerical(parsedArgs, "OType");
             IntArgument intArgument = (IntArgument) parsedArgs.get(0);
-            return new OArgument(new TypeArgument(intArgument));
+            return new OTypeArgument(intArgument);
         }
         if (parser.name.equals("ocond")){
             checkArguments(parser, 1, "OCond");
             checkNumerical(parsedArgs, "OCond");
             IntArgument intArgument = (IntArgument) parsedArgs.get(0);
-            return new OArgument(new CondArgument(intArgument));
+            return new OCondArgument(intArgument);
         }
         if (parser.name.equals("ocondtype")){
             checkArguments(parser, 1, "OCondType");
             checkNumerical(parsedArgs, "OCondType");
             IntArgument intArgument = (IntArgument) parsedArgs.get(0);
-            return new OArgument(new CondTypeArgument(intArgument));
+            return new OCondTypeArgument(intArgument);
         }
         if (parser.name.equals("ovar")){
             checkArguments(parser, 1, "OVar");

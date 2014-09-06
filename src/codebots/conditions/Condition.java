@@ -3,6 +3,7 @@ package codebots.conditions;
 import codebots.Bot;
 import codebots.FunctionParser;
 import codebots.arguments.Argument;
+import codebots.arguments.CondArgument;
 import codebots.arguments.IntArgument;
 import codebots.exceptions.BadFormatException;
 
@@ -47,6 +48,10 @@ public abstract class Condition {
     private static Condition createCondition(FunctionParser parser){
         if (parser.name.isEmpty()){
             return new EmptyCondition();
+        }
+        if (parser.name.equals("cond") || parser.name.equals("ocond")){
+            CondArgument arg = (CondArgument)Argument.parseArgument(parser.full_line);
+            return new RefCondition(arg);
         }
         if (parser.name.equals("modified")){
             checkArguments(parser, 1, "Modified");

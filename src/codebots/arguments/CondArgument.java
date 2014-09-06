@@ -4,7 +4,7 @@ import codebots.Bot;
 import codebots.conditions.Condition;
 
 public class CondArgument extends Argument<Condition>{
-    private final IntArgument lineNumber;
+    protected final IntArgument lineNumber;
     public CondArgument(IntArgument lineNumber){
         this.lineNumber = lineNumber;
     }
@@ -17,11 +17,6 @@ public class CondArgument extends Argument<Condition>{
     @Override
     public Condition getValue(Bot current, int curLine) {
         return current.getCondition(lineNumber.getValue(current, curLine));
-    }
-
-    @Override
-    public boolean equals(Argument other, Bot current, int curLine) {
-        return other.getValue(current, curLine).equals(getValue(current, curLine));
     }
 
 
