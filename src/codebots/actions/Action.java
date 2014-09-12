@@ -8,10 +8,10 @@ import codebots.exceptions.BadFormatException;
 
 import java.util.HashMap;
 
-public abstract class Action<T extends Action<T>> {
+public abstract class Action {
     private static HashMap<FunctionParser, Action> memoizer = new HashMap<>();
     public abstract void act(Bot bot, int curLine);
-    public boolean equalsExact(Action action){
+    public boolean equals(Action action){
         return action.command.equals(this.command);
     }
     @Override
@@ -19,9 +19,6 @@ public abstract class Action<T extends Action<T>> {
         return this.command;
     }
     protected String command;
-    public boolean isSimilarTo(Action action){
-        return action.getClass().equals(this.getClass());
-    }
     public static Action parseAction(String line, Bot creator){
         if (line.contains("Flag")){
             line = line.replace("Flag","Flag "+creator.name);
@@ -31,7 +28,7 @@ public abstract class Action<T extends Action<T>> {
         if (a == null) {
             a = createAction(parser, creator);
         }
-        a.command = line;
+        a.command = parser.full_line;
         addMemoized(parser, a);
         return a;
     }
@@ -44,7 +41,7 @@ public abstract class Action<T extends Action<T>> {
     private static void addMemoized(FunctionParser line, Action a){
         memoizer.put(line, a);
     }
-    private static Action<?> createAction(FunctionParser parser, Bot creator){
+    private static Action createAction(FunctionParser parser, Bot creator){
         if (parser.name.equals("")){
             return new EmptyAction();
         }

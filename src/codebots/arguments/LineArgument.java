@@ -3,7 +3,7 @@ package codebots.arguments;
 import codebots.Bot;
 import codebots.actions.Action;
 
-public class LineArgument extends Argument<Action<?>> {
+public class LineArgument extends Argument<Action> {
     protected final IntArgument lineNumber;
     public LineArgument(IntArgument lineNumber){
         this.lineNumber = lineNumber;
@@ -14,12 +14,12 @@ public class LineArgument extends Argument<Action<?>> {
     }
 
     @Override
-    public void setValue(Bot current, Action<?> value, int curLine) {
+    public void setValue(Bot current, Action value, int curLine) {
         current.setLine(lineNumber.getValue(current, curLine), value);
     }
 
     @Override
-    public Action<?> getValue(Bot current, int curLine) {
+    public Action getValue(Bot current, int curLine) {
         return current.getLine(lineNumber.getValue(current, curLine));
     }
 

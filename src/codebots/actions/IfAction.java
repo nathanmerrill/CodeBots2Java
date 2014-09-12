@@ -8,7 +8,7 @@ import codebots.exceptions.BadFormatException;
 
 import java.util.HashSet;
 
-public class IfAction extends Action<IfAction>{
+public class IfAction extends Action{
     private final Condition condition;
     private final LineArgument trueLine;
     private final LineArgument falseLine;

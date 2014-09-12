@@ -82,12 +82,47 @@ public class Bot {
             actions[index] = Action.parseAction(parts[0], this);
         }
     }
+    private int getShiftY(CodeBots.Direction d){
+        CodeBots.Direction direction = CodeBots.Direction.values()[getVariable('D')%4];
+        int newY = y + direction.y;
+        if (newY < 0){
+            newY += CodeBots.getHeight();
+        } else if (newY >= CodeBots.getHeight()){
+            newY -= CodeBots.getHeight();
+        }
+        return newY;
+    }
+
+    private int getShiftX(CodeBots.Direction d){
+        int newX = x + d.x;
+        if (newX < 0){
+            newX += CodeBots.getWidth();
+        } else if (newX >= CodeBots.getWidth()){
+            newX -= CodeBots.getWidth();
+        }
+        return newX;
+    }
+
+    public void move(){
+        CodeBots.Direction newDirection = CodeBots.Direction.values()[getVariable('D')%4];
+        int x = getShiftX(newDirection);
+        int y = getShiftY(newDirection);
+        if (CodeBots.getBot(x, y) != null) {
+            return;
+        }
+        CodeBots.removeBot(this.x, this.y);
+        this.x = x;
+        this.y = y;
+        CodeBots.addBot(this, x, y);
+    }
     public Bot getOpponent(){
         return getOpponent(vars['D'-'A']);
     }
     public Bot getOpponent(int direction){
         CodeBots.Direction directionVal = CodeBots.Direction.values()[direction%4];
-        Bot b = CodeBots.getBot(x+directionVal.x, y+directionVal.y);
+        int y = getShiftY(directionVal);
+        int x = getShiftX(directionVal);
+        Bot b = CodeBots.getBot(x, y);
         if (b == null){
             throw new NoOpponent();
         }

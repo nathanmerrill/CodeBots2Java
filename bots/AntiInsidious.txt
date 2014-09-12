@@ -1,0 +1,5 @@
+Start:Move
+All(BotAt(D),Equals(OCond(1),Cond(3))):Copy(Cond(4),OCond(1))
+All(BotAt(D),Equals(Type(6),OType(3)),Not(Equals(Line(6),OLine(3)))):Copy(Line(6),OLine(3))
+Equals(E,0):Move
+BotAt(D):Copy(Add(1,D,Mod(E,3)),D)

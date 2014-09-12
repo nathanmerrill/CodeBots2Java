@@ -53,4 +53,9 @@ public class FunctionParser {
     public int hashCode() {
         return full_line.hashCode();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return full_line.equals(full_line);
+    }
 }

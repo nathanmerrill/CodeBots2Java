@@ -25,7 +25,7 @@ public abstract class Condition {
             return c;
         c = createCondition(parser);
         addMemoized(parser, c);
-        c.string = condition;
+        c.string = parser.full_line;
         return c;
     }
     private static String parseName(String line){

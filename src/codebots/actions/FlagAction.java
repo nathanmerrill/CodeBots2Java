@@ -2,7 +2,7 @@ package codebots.actions;
 
 import codebots.Bot;
 
-public class FlagAction extends Action<FlagAction> {
+public class FlagAction extends Action {
     public final Bot owner;
     public FlagAction(Bot original){
         owner = original;

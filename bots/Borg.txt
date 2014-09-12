@@ -1,0 +1,8 @@
+Start:Copy(2,A)
+Not(BotAt(D)):Move
+All(Equals(A,2),Equals(Line(0),OLine(0))):Copy(E,D)
+All(Equals(A,2),Not(Equals(OCond(1),Cond(7)))):Copy(Cond(7),OCond(1))
+All(Equals(A,2),Not(Equals(OLine(1),Line(7)))):Copy(Line(7),OLine(1))
+Not(Equals(Cond(A),OCond(A))):Copy(Cond(A),OCond(A))
+Not(Equals(Line(A),OLine(A))):Copy(Line(A),OLine(A))
+Equals(A,A):Copy(Add(A,1),A)

@@ -9,12 +9,12 @@ public class OLineArgument extends LineArgument{
     }
 
     @Override
-    public Action<?> getValue(Bot current, int curLine) {
+    public Action getValue(Bot current, int curLine) {
         return current.getOpponent().getLine(getLineNumber(current, curLine));
     }
 
     @Override
-    public void setValue(Bot current, Action<?> value, int curLine) {
+    public void setValue(Bot current, Action value, int curLine) {
         current.getOpponent().setLine(getLineNumber(current, curLine), value);
     }
 

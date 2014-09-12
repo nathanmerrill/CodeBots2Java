@@ -4,7 +4,7 @@ package codebots.actions;
 import codebots.Bot;
 import codebots.arguments.Argument;
 
-public class CopyAction extends Action<CopyAction>{
+public class CopyAction extends Action{
 
     private final Argument copyTo;
     private final Argument copyFrom;
