@@ -3,7 +3,7 @@ package codebots.arguments;
 import codebots.Bot;
 
 public class VarArgument extends IntArgument{
-    private final char var;
+    public final char var;
     public VarArgument(char argument){
         var = argument;
     }

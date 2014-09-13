@@ -1,6 +1,7 @@
 package codebots.arguments;
 
 import codebots.Bot;
+import codebots.CodeBots;
 
 public class OVarArgument extends IntArgument{
     private final VarArgument argument;
@@ -9,12 +10,19 @@ public class OVarArgument extends IntArgument{
     }
     @Override
     public void setValue(Bot current, Integer value, int curLine) {
+        if (argument.var == 'C'){
+            value += current.getOpponent().offset% CodeBots.numLines;
+        }
         argument.setValue(current.getOpponent(), value, curLine);
     }
 
     @Override
     public Integer getValue(Bot current, int curLine) {
-        return argument.getValue(current.getOpponent(), curLine);
+        int value =  argument.getValue(current.getOpponent(), curLine);
+        if (argument.var == 'C'){
+            value += current.getOpponent().offset% CodeBots.numLines;
+        }
+        return value;
     }
 
 

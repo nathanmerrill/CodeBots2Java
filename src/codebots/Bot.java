@@ -23,6 +23,7 @@ public class Bot {
     public final String name;
     public int x, y;
     private static Random random = new Random(System.currentTimeMillis());
+    public final int offset;
 
 
 
@@ -51,6 +52,7 @@ public class Bot {
             initialActions[code_index] = actions[code_index];
             initialConditions[code_index] = conditions[code_index];
             code_index++;
+
         }
         int lineOfStart = -1;
         for (int i = 0; i < CodeBots.numLines; i++){
@@ -69,6 +71,7 @@ public class Bot {
         vars = new int[5];
         varsChanged = new HashSet<>(5);
         setVars();
+        this.offset = random.nextInt(16);
     }
     public void parseCondition(String condition, int index){
         String[] parts = condition.split(":");

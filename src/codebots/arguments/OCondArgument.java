@@ -1,6 +1,7 @@
 package codebots.arguments;
 
 import codebots.Bot;
+import codebots.CodeBots;
 import codebots.conditions.Condition;
 
 public class OCondArgument extends CondArgument{
@@ -10,16 +11,16 @@ public class OCondArgument extends CondArgument{
 
     @Override
     public void setValue(Bot current, Condition value, int curLine) {
-        current.getOpponent().setCondition(super.lineNumber.getValue(current, curLine), value);
+        current.getOpponent().setCondition((super.lineNumber.getValue(current, curLine)+current.getOpponent().offset)% CodeBots.numLines, value);
     }
 
     @Override
     public Condition getValue(Bot current, int curLine) {
-        return current.getOpponent().getCondition(super.lineNumber.getValue(current, curLine));
+        return current.getOpponent().getCondition((super.lineNumber.getValue(current, curLine)+current.getOpponent().offset)% CodeBots.numLines);
     }
 
     @Override
     public boolean wasChanged(Bot current, int curLine) {
-        return current.getOpponent().conditionWasModified(lineNumber.getValue(current, curLine));
+        return current.getOpponent().conditionWasModified((lineNumber.getValue(current, curLine)+current.getOpponent().offset)% CodeBots.numLines);
     }
 }
