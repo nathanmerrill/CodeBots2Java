@@ -1,3 +1,4 @@
+Flag
 Start: Copy(11,B)
 Not(Equals(Line(20),Line(21))): If(Equals(Line(21),Line(22)),Line(7),Line(8))
 Not(Equals(Line(21),Line(22))): If(Equals(Line(20),Line(21)),Line(9),Line(10))

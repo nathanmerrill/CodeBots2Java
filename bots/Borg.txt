@@ -1,8 +1,9 @@
 Start:Copy(2,A)
+All(Not(BotAt(D)),Not(Equals(2,A))):Copy(2,A)
 Not(BotAt(D)):Move
-All(Equals(A,2),Equals(Line(0),OLine(0))):Copy(E,D)
-All(Equals(A,2),Not(Equals(OCond(1),Cond(7)))):Copy(Cond(7),OCond(1))
-All(Equals(A,2),Not(Equals(OLine(1),Line(7)))):Copy(Line(7),OLine(1))
+All(Equals(Line(0),OLine(0)),Equals(Line(1),OLine(1)),Equals(Line(2),OLine(2)),Equals(Line(3),OLine(3)),Equals(Line(4),OLine(4)),Equals(Line(5),OLine(5)),Equals(Line(6),OLine(6)),Equals(Line(7),OLine(7)),Equals(Line(8),OLine(8))):Copy(E,D)
+All(Equals(A,2),Not(Equals(OCond(1),Cond(Add(This,4))))):Copy(Cond(Add(This,4)),OCond(1))
+All(Equals(A,2),Not(Equals(OLine(1),Line(Add(This,3))))):Copy(Line(Add(This,3)),OLine(1))
 Not(Equals(Cond(A),OCond(A))):Copy(Cond(A),OCond(A))
 Not(Equals(Line(A),OLine(A))):Copy(Line(A),OLine(A))
 Equals(A,A):Copy(Add(A,1),A)
