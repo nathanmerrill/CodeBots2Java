@@ -1,0 +1,10 @@
+flag
+flag
+Start:Copy(11,B)
+All(BotAt(D),Not(Equals(OLine(Mod(E,8)),Line(0))),Not(BotAt(Add(D,1,Mod(E,3))))):If(Equals(OVar(D),Add(D,2)),Line(7),Line(8))
+BotAt(Add(D,1)):Copy(Add(D,1),D)
+BotAt(Add(D,2)):Copy(Add(D,2),D)
+BotAt(Add(D,3)):Copy(Add(D,3),D)
+copy(D,OVar(D))
+copy(Line(Mod(E,2)),OLine(Mod(E,8)))
+Not(Equals(Line(0),Line(1))):copy(Line(Add(9,Mod(E,16))),Line(Mod(E,2)))

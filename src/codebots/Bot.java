@@ -212,7 +212,7 @@ public class Bot {
     private void checkConditions(){
         for (int i = 0; i < CodeBots.numLines; i++){
             int lineNum = (i+startLine)%CodeBots.numLines;
-            if (conditionIsTrue(i)){
+            if (conditionIsTrue(lineNum)){
                 vars['C' - 'A'] = lineNum;
                 return;
             }
