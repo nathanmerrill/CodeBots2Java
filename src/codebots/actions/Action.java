@@ -21,7 +21,7 @@ public abstract class Action {
     protected String command;
     public static Action parseAction(String line, Bot creator){
         if (line.contains("Flag")){
-            line = line.replace("Flag","Flag "+creator.name);
+            line = line.replace("Flag","Flag_"+creator.name);
         }
         FunctionParser parser = new FunctionParser(line);
         Action a = getMemoized(parser);

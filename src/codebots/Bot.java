@@ -86,8 +86,7 @@ public class Bot {
         }
     }
     private int getShiftY(CodeBots.Direction d){
-        CodeBots.Direction direction = CodeBots.Direction.values()[getVariable('D')%4];
-        int newY = y + direction.y;
+        int newY = y + d.y;
         if (newY < 0){
             newY += CodeBots.getHeight();
         } else if (newY >= CodeBots.getHeight()){

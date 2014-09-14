@@ -11,7 +11,7 @@ public class OVarArgument extends IntArgument{
     @Override
     public void setValue(Bot current, Integer value, int curLine) {
         if (argument.var == 'C'){
-            value += current.getOpponent().offset% CodeBots.numLines;
+            value -= CodeBots.numLines - current.getOpponent().offset;
         }
         argument.setValue(current.getOpponent(), value, curLine);
     }
@@ -20,7 +20,7 @@ public class OVarArgument extends IntArgument{
     public Integer getValue(Bot current, int curLine) {
         int value =  argument.getValue(current.getOpponent(), curLine);
         if (argument.var == 'C'){
-            value += current.getOpponent().offset% CodeBots.numLines;
+            value += CodeBots.numLines - current.getOpponent().offset;
         }
         return value;
     }
