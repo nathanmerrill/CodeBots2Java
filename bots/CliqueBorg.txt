@@ -1,0 +1,10 @@
+Start:Copy(13,B)
+All(Not(BotAt(D)),Not(Equals(2,A))):Copy(2,A)
+Not(BotAt(D)):Move
+Equals(OVar(B),13):Copy(E,D)
+All(Equals(A,2),Equals(OCond(Add(OVar(C),1)),Cond(Sub(This,1)))): Copy(13,OVar(B))
+All(Equals(A,2),Not(Equals(OLine(Sub(OVar(C),1)),Line(Add(This,3))))):Copy(Line(Add(This,4)),OLine(Sub(OVar(C),1)))
+All(Equals(A,2),Not(Equals(OCond(Sub(OVar(C),1)),Cond(Add(This,4))))):Copy(Cond(Add(This,3)),OCond(Sub(OVar(C),1)))
+Not(Equals(Cond(Sub(Add(OVar(C),A),1)),OCond(Sub(Add(OVar(C),A),1)))):Copy(Cond(Sub(Add(OVar(C),A),1)),OCond(Sub(Add(OVar(C),A),1)))
+Not(Equals(Line(Sub(Add(OVar(C),A),1)),OLine(Sub(Add(OVar(C),A),1)))):Copy(Line(Sub(Add(OVar(C),A),1)),OLine(Sub(Add(OVar(C),A),1)))
+Equals(A,A):Copy(Add(A,1),A)

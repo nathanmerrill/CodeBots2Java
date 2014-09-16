@@ -1,0 +1,12 @@
+Flag
+BotAt(D):Copy(Line(Sub(This,1)),OLine(E))
+Equals(1,1):Copy(Line(Sub(This,2)),Line(Add(This,Mod(E,21))))
+Start:Move
+All(BotAt(D),Not(Equals(OLine(Sub(OVar(C),1)),Line(3)))):Copy(Line(3),OLine(Sub(OVar(C),1)))
+All(BotAt(D),Not(Equals(OCond(Sub(OVar(C),1)),Cond(3)))):Copy(Cond(3),OCond(Sub(OVar(C),1)))
+All(BotAt(D),Not(Equals(OLine(Sub(OVar(C),2)),Line(2)))):Copy(Line(2),OLine(Sub(OVar(C),2)))
+All(BotAt(D),Not(Equals(OCond(Sub(OVar(C),2)),Cond(2)))):Copy(Cond(2),OCond(Sub(OVar(C),2)))
+All(BotAt(D),Not(Equals(OLine(Sub(OVar(C),3)),Line(1)))):Copy(Line(1),OLine(Sub(OVar(C),3)))
+All(BotAt(D),Not(Equals(OCond(Sub(OVar(C),3)),Cond(4)))):Copy(Cond(4),OCond(Sub(OVar(C),3)))
+BotAt(D):Copy(Add(D,1),D)
+Equals(1,1):Move
