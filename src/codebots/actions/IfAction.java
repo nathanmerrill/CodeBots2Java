@@ -27,9 +27,9 @@ public class IfAction extends Action{
 
     @Override
     public void act(Bot b, int curLine) {
-        if (recursionBlocker.contains(this.command))
+        if (recursionBlocker.contains(this.toString()))
             return;
-        recursionBlocker.add(this.command);
+        recursionBlocker.add(this.toString());
         int lineNumber;
         if (condition.isTrue(b, curLine)){
             lineNumber = trueLine.getLineNumber(b, curLine);

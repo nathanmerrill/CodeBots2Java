@@ -16,7 +16,7 @@ public class TypeArgument extends Argument<String> {
 
     @Override
     public String getValue(Bot current, int curLine) {
-        return current.getLine(lineNumber.getValue(current, curLine)).toString().split(" ")[0];
+        return current.getLine(lineNumber.getValue(current, curLine)).getParser().name;
     }
 
     @Override

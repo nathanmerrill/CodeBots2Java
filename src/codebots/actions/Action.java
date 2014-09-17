@@ -12,13 +12,16 @@ public abstract class Action {
     private static HashMap<FunctionParser, Action> memoizer = new HashMap<>();
     public abstract void act(Bot bot, int curLine);
     public boolean equals(Action action){
-        return action.command.equals(this.command);
+        return action.parser.equals(this.parser);
     }
     @Override
     public String toString(){
-        return this.command;
+        return this.parser.full_line;
     }
-    protected String command;
+    public FunctionParser getParser(){
+        return parser;
+    }
+    private FunctionParser parser;
     public static Action parseAction(String line, Bot creator){
         if (line.contains("Flag")){
             line = line.replace("Flag","Flag_"+creator.name);
@@ -28,7 +31,7 @@ public abstract class Action {
         if (a == null) {
             a = createAction(parser, creator);
         }
-        a.command = parser.full_line;
+        a.parser = parser;
         addMemoized(parser, a);
         return a;
     }
